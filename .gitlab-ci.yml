@@ -1,0 +1,10 @@
+before_script:
+  - apt-get update -qq && apt-get install -y -qq openjdk-8-jdk-headless maven
+  - mvn clean compile -DskipTests
+unit-tests:
+  script:
+    - mvn test
+
+build-project:
+  script:
+    - mvn package -DskipTests -Dverify=false
