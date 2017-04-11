@@ -12,6 +12,7 @@ public class MainTest {
   public void shouldTada(){
   	Main m = new Main();
   	m.tada();
+	System.out.println("TADA WORKED");
   }
 
 }
