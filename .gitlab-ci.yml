@@ -30,7 +30,7 @@ hml-deploy:
 deploy_prod:
   stage: deploy
   script:
-    - "echo 'Deploy to Production server'"
+    - "echo 'Deploy to Production server!!!'"
   environment:
     name: production
     url: https://example.com
