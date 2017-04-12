@@ -1,8 +1,9 @@
 #image: openjdk:8
+#- sudo apt-get update -qq && sudo apt-get install -y -qq openjdk-8-jdk-headless maven
 
 before_script:
-  - sudo apt-get update -qq && sudo apt-get install -y -qq openjdk-8-jdk-headless maven
   - mvn clean compile -DskipTests
+
 unit-tests:
   script:
     - mvn test
