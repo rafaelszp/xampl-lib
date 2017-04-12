@@ -4,10 +4,34 @@
 before_script:
   - mvn clean compile -DskipTests
 
-unit-tests:
+stages:
+  - unit
+  - build
+  - deploy
+
+unitary-tests:
+  stage: unit
   script:
     - mvn test
 
 build-project:
+  stage: build
   script:
     - mvn package -DskipTests -Dverify=false
+
+hml-deploy:
+  stage: deploy
+  script:
+    - "echo 'Deploying do HML Servers'"
+  environment:
+      name: hml
+      url: https://staging.example.com
+
+deploy_prod:
+  stage: deploy
+  script:
+    - "echo 'Deploy to Production server'"
+  environment:
+    name: production
+    url: https://example.com
+  when: manual
